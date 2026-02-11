@@ -35,25 +35,6 @@ export const getStoreRatings = async(req, res)=>{
     }
 }
 
-
-// export const getStoreStats = async(req,res)=>{
-//     try {
-//         const [[stats]] = await sql`
-//             SELECT COUNT(r.id) AS total_ratings,
-//             AVG(r.rating) AS avg_rating
-//             FROM stores
-//             LEFT JOIN ratings r ON s.id = r.store_id
-//             WHERE s.owner_id = ${req.user.id}
-//         `
-//         res.json({
-//             totalRatings: Number(stats.total_ratings),
-//             averageRating: Number(stats.avg_rating)
-//         });
-//     } catch (error) {
-//         res.status(400).json({message: "error getting stats"});
-//     }
-// }
-
 export const getStoreStats = async (req, res) => {
   try {
     const ownerId = req.user.id;
