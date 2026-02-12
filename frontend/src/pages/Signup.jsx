@@ -24,7 +24,7 @@ export default function Signup() {
     setLoading(true);
 
     try {
-      const res = await api.post("/users/signup", form);
+      const res = await api.post("/user/signup", form);
       setUser(res.data.user);
       navigate("/user");
     } catch (err) {

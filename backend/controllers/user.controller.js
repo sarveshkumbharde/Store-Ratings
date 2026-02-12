@@ -19,7 +19,8 @@ export const signup = async (req, res) => {
     const [existingUser] = await sql`
       SELECT * from users WHERE email=${email}
     `;
-    if(existingUser) return res.status(400).json({message:"user already exist"});
+    if (existingUser)
+      return res.status(400).json({ message: "user already exist" });
     const hashedPassword = await bcrypt.hash(password, 10);
     const [user] = await sql`
             INSERT INTO users (name, email, password, address, role)
@@ -81,21 +82,21 @@ export const login = async (req, res) => {
       address: user.address,
       role: user.role,
     };
-    res.status(200).json({user: safeUser});
+    res.status(200).json({ user: safeUser });
   } catch (error) {
     res.status(400).json({ message: "Failed to login" });
   }
 };
 
-export const logout = async(req,res)=>{
-  res.clearCookie('token', {
+export const logout = async (req, res) => {
+  res.clearCookie("token", {
     httpOnly: true,
-    sameSite: 'lax',
-    secure: false
+    sameSite: "lax",
+    secure: false,
   });
   return res.status(200).json({
-    message: "Logged out successfully"
-  })
+    message: "Logged out successfully",
+  });
 };
 
 export const getStores = async (req, res) => {
@@ -122,7 +123,6 @@ export const getStores = async (req, res) => {
     res.status(500).json({ message: "Failed to fetch stores" });
   }
 };
-
 
 export const updatePassword = async (req, res) => {
   try {

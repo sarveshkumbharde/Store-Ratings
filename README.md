@@ -68,3 +68,11 @@ normal user tasks:
 store owner tasks:
 1. Can the store's details with total ratings and average rating 
 2. Can update its password.
+
+
+environment variables
+
+PORT
+DATABASE_URL
+FRONTEND_URL
+JWT_SECRET

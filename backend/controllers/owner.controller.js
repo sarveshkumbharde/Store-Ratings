@@ -21,7 +21,7 @@ export const getMyStore = async (req, res) => {
 export const getStoreRatings = async(req, res)=>{
     try{
         const ratings = await sql`
-            SELECT u.id, u.name, u.email, s.name, r.rating, r.created_at
+            SELECT u.id, u.name, u.email, r.rating, r.created_at
             FROM ratings r
             JOIN users u ON r.user_id = u.id
             JOIN stores s ON r.store_id = s.id

@@ -15,7 +15,7 @@ export default function RatingsTable({ ratings }) {
         <thead>
           <tr className="border-b">
             <th className="text-left">User</th>
-            <th className="text-left">Email</th>
+            <th className="text-left">Email</th> 
             <th>Rating</th>
             <th>Date</th>
           </tr>
